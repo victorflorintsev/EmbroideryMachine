@@ -38,7 +38,7 @@ public class Shape {
 
 
     protected void findArea() { // finds a close approximation of area by generating triangles and calculating their area
-        double sum = 0;
+        double sum = 0; // comment test
         int[] first = slist[0].getStart(); // first point
         for (Stitch s:slist) {
             s.getTArea(first[0],first[1]);
