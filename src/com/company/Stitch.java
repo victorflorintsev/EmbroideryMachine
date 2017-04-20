@@ -12,6 +12,8 @@ public class Stitch {
     private double slope;
 
     Stitch(int x_start, int y_start, int x_end, int y_end) {
+        start = new int[2];
+        end = new int[2];
         start[0] = x_start;
         start[1] = y_start;
         end[0]   = x_end;

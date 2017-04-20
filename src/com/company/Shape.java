@@ -6,11 +6,11 @@ import static com.company.Main.cp;
  * Created by Victor on 4/19/2017.
  */
 public class Shape {
-    Stitch[] slist; // list of stitches
+    private Stitch[] slist; // list of stitches
 
-    double[] cm; // center of mass
-    double area;
-    double perimeter;
+    private double[] cm; // center of mass
+    private double area;
+    private double perimeter;
 
     Shape(int x, int y, int sideSize) {
 
@@ -22,6 +22,7 @@ public class Shape {
     }
 
     private void makeSquare(int x, int y, int sideSize) { // keep in mind x, y is bottom left corner
+        slist = new Stitch[4];
         slist[0] = new Stitch(x               ,y               ,x+sideSize,y);
         slist[1] = new Stitch(x+sideSize,y               ,x+sideSize,y+sideSize);
         slist[2] = new Stitch(x+sideSize,y+sideSize,x               ,y+sideSize);
@@ -70,4 +71,11 @@ public class Shape {
         cm[1] += y;
     }
 
+    public void print() {
+        for (Stitch s:slist) {
+            int[] st = s.getStart();
+            int[] en = s.getEnd();
+            System.out.println(st[0] + " " + st[1] + " " + en[0] + " " + en[1]);
+        }
+    }
 }

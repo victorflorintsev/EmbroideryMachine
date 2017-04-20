@@ -3,8 +3,16 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        Shape test = new Shape(10,10, 3);
+
+        test.print(); // works as expected
     }
+
+    // ===================================   +
+    // ===================================   +
+    /* HELPER METHODS FOR USE IN CLASSES:=   +
+    // ===================================  =+=
+  */// ===================================   =
 
     public static double cp(double x1,double y1,double x2,double y2){ //returns cross product
         return x1*y2-y1*x2;
