@@ -3,12 +3,15 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        MainWindow   MWindow = new MainWindow();
+        MapWindow   MWindow = new MapWindow();
         HelperWindow HWindow = new HelperWindow();
 
         Shape test = new Shape(10,10, 3);
 
         test.print(); // works as expected
+
+        test.getArea();
+        test.getPerimeter();
     }
 
     // ===================================   +
