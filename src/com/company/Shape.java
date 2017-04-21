@@ -29,22 +29,20 @@ public class Shape {
         slist[3] = new Stitch(x               ,y+sideSize,x               ,y);
     }
 
-    private double findPerimeter() {
-        double sum = 0;
+    private void findPerimeter() {
+        perimeter = 0;
         for (Stitch s:slist) {
-            sum+=s.getLength();
+            perimeter+=s.getLength();
         }
-        return sum;
     }
 
 
     protected void findArea() { // finds a close approximation of area by generating triangles and calculating their area
-        double sum = 0; // comment test
+        area = 0; // comment test
         int[] first = slist[0].getStart(); // first point
         for (Stitch s:slist) {
-            s.getTArea(first[0],first[1]);
+            area += s.getTArea(first[0],first[1]);
         }
-        area = sum;
     }
 
     protected void findCm() {

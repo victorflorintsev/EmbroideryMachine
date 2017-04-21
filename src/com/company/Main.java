@@ -3,6 +3,9 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
+        MainWindow   MWindow = new MainWindow();
+        HelperWindow HWindow = new HelperWindow();
+
         Shape test = new Shape(10,10, 3);
 
         test.print(); // works as expected
