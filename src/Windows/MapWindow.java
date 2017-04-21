@@ -11,11 +11,13 @@ import java.awt.*;
  * and the max size is 5" by 7"
  * which in millimeters is 127 X ~178 mm
  *
+ * Turning it sideways so user gets to see more
+ *
  */
 public class MapWindow extends Window {
-    public static final int MACHINE_WIDTH_MM  = 127;
-    public static final int MACHINE_HEIGHT_MM = 178;
-    public static final int PIXELS_PER_MM = 4;
+    public static final int MACHINE_WIDTH_MM  = 178;
+    public static final int MACHINE_HEIGHT_MM = 127;
+    public static final int PIXELS_PER_MM = 8;
     public static final int WINDOW_WIDTH  = MACHINE_WIDTH_MM * PIXELS_PER_MM;
     public static final int WINDOW_HEIGHT = MACHINE_HEIGHT_MM * PIXELS_PER_MM;
     public static final int NUM_ROWS      = 1;
@@ -32,7 +34,7 @@ public class MapWindow extends Window {
         ClickListener clickListener = new ClickListener();
         MotionListener motionListener = new MotionListener();
 
-        map = new Map(new Color(120,120,120));
+        map = new Map(new Color(200,200,200));
         map.addMouseMotionListener(motionListener);
         map.addMouseListener(clickListener);
         map.setVisible(true);
