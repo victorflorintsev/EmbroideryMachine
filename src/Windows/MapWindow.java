@@ -1,5 +1,8 @@
 package Windows;
 
+import Shapes.EShape;
+import Shapes.ShapeSpace;
+
 import java.awt.*;
 
 /**
@@ -19,14 +22,17 @@ public class MapWindow extends Window {
     public static final int NUM_COLS      = 1;
 
     private Map map;
+    private ShapeSpace space;
 
     public MapWindow() {
         super("Embroidery Map",WINDOW_WIDTH,WINDOW_HEIGHT,NUM_ROWS,NUM_COLS,HelperWindow.WINDOW_WIDTH+20,0);
 
+        space = new ShapeSpace();
+
         ClickListener clickListener = new ClickListener();
         MotionListener motionListener = new MotionListener();
 
-        map = new Map(new Color(200,200,200));
+        map = new Map(new Color(120,120,120));
         map.addMouseMotionListener(motionListener);
         map.addMouseListener(clickListener);
         map.setVisible(true);
@@ -35,5 +41,13 @@ public class MapWindow extends Window {
 
         mainFrame.setVisible(true);
         //map.addMouseListener();
+    }
+
+    public void add(EShape s) {
+        space.add(s);
+    }
+
+    public void update() {
+        // draw
     }
 }

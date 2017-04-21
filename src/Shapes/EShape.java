@@ -3,14 +3,17 @@ package Shapes;
 /**
  * Created by Victor on 4/19/2017.
  */
-public class Shape {
+public class EShape {
+    public static final int[] DEFAULT_COLOR = {220,20,20};
+
     private Stitch[] slist; // list of stitches
 
     private double[] cm; // center of mass
     private double area;
     private double perimeter;
+    private int[] color = DEFAULT_COLOR;
 
-    public Shape(int x, int y, int sideSize) {
+    public EShape(int x, int y, int sideSize) {
 
         makeSquare(x,y,sideSize);
 
@@ -63,8 +66,8 @@ public class Shape {
         for (Stitch a:slist) {
             a.moveBy(x,y);  // move every stitch
         }
-        cm[0] += x; // move center of mass
-        cm[1] += y;
+//        cm[0] += x; // move center of mass
+//        cm[1] += y;
     }
 
     public void print() {
@@ -73,5 +76,7 @@ public class Shape {
             int[] en = s.getEnd();
             System.out.println(st[0] + " " + st[1] + " " + en[0] + " " + en[1]);
         }
+        System.out.println("Area: "+ this.getArea() +"\n" +
+                           "Perimeter: "+this.getPerimeter());
     }
 }

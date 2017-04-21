@@ -1,5 +1,8 @@
 package Shapes;
 
+import java.awt.*;
+import java.awt.geom.Line2D;
+
 import static com.company.Main.findLength;
 
 /**
@@ -11,6 +14,7 @@ public class Stitch {
     private double length;
     private double slope;
 
+    private Line2D.Float line;
     Stitch(int x_start, int y_start, int x_end, int y_end) {
         start = new int[2];
         end = new int[2];
@@ -19,7 +23,10 @@ public class Stitch {
         end[0]   = x_end;
         end[1]   = y_end;
 
+        line = new Line2D.Float(x_start,y_start,x_end,y_end);
+
         length = findLength(x_start, y_start, x_end, y_end);
+
         slope = ( (double)(y_end - y_start) ) / ( (double) (x_end - x_start) ); // Rise / Run
     }
 
@@ -33,6 +40,12 @@ public class Stitch {
 
     public double getSlope() {
         return slope;
+    }
+
+    public Line2D.Float getLine() { return line; }
+
+    void highlight(Color c) {
+        // highlight code placeholder
     }
 
     protected void moveBy(int x, int y) { // moves entire stitch, preserving angle;

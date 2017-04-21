@@ -1,21 +1,22 @@
 package com.company;
 
-import Shapes.Shape;
+import Shapes.EShape;
 import Windows.HelperWindow;
 import Windows.MapWindow;
 
 public class Main {
 
     public static void main(String[] args) {
-        MapWindow MWindow = new MapWindow();
-        HelperWindow HWindow = new HelperWindow();
+        MapWindow map = new MapWindow();
+        HelperWindow helperWindow = new HelperWindow();
 
-        Shape test = new Shape(10,10, 3);
+        EShape test = new EShape(10,10, 3);
 
-        test.print(); // works as expected
+        test.print();
 
-        test.getArea();
-        test.getPerimeter();
+        map.add(test);
+
+        map.update(); // broken
     }
 
     // ===================================   +
