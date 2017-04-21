@@ -1,9 +1,13 @@
 package com.company;
 
+import Shapes.Shape;
+import Windows.HelperWindow;
+import Windows.MapWindow;
+
 public class Main {
 
     public static void main(String[] args) {
-        MapWindow   MWindow = new MapWindow();
+        MapWindow MWindow = new MapWindow();
         HelperWindow HWindow = new HelperWindow();
 
         Shape test = new Shape(10,10, 3);

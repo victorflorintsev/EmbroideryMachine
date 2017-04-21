@@ -1,4 +1,4 @@
-package com.company;
+package Shapes;
 
 import static com.company.Main.findLength;
 

@@ -1,6 +1,4 @@
-package com.company;
-
-import static com.company.Main.cp;
+package Shapes;
 
 /**
  * Created by Victor on 4/19/2017.
@@ -12,7 +10,7 @@ public class Shape {
     private double area;
     private double perimeter;
 
-    Shape(int x, int y, int sideSize) {
+    public Shape(int x, int y, int sideSize) {
 
         makeSquare(x,y,sideSize);
 

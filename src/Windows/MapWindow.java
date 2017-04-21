@@ -1,13 +1,12 @@
-package com.company;
+package Windows;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**
  * This is the window containing a visual map for the user
  * the precision of the machine is 1/10 mm per x or y
  * and the max size is 5" by 7"
- * which in milimeters is 127 X ~178 mm
+ * which in millimeters is 127 X ~178 mm
  *
  */
 public class MapWindow extends Window {
@@ -24,7 +23,12 @@ public class MapWindow extends Window {
     public MapWindow() {
         super("Embroidery Map",WINDOW_WIDTH,WINDOW_HEIGHT,NUM_ROWS,NUM_COLS,HelperWindow.WINDOW_WIDTH+20,0);
 
+        ClickListener clickListener = new ClickListener();
+        MotionListener motionListener = new MotionListener();
+
         map = new Map(new Color(200,200,200));
+        map.addMouseMotionListener(motionListener);
+        map.addMouseListener(clickListener);
         map.setVisible(true);
         mainFrame.add(map);
 

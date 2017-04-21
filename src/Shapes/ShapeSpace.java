@@ -1,4 +1,4 @@
-package com.company;
+package Shapes;
 
 /**
  * Created by Victor on 4/19/2017.

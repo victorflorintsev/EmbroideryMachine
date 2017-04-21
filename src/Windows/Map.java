@@ -1,4 +1,5 @@
-package com.company;
+package Windows;
+
 import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Color;
