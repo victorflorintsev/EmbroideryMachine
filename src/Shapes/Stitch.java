@@ -66,8 +66,14 @@ public class Stitch {
         return (Math.atan( (slope - in.getSlope()) / (1 + slope*in.getSlope()) ));
     }
 
-    protected double getTArea(int x, int y) { // input point to get total triangular area
-        return (length*findLength(start[0],start[1],x,y))/2;
+    protected double getTArea(int x, int y) { // input point to get total triangular area using heron's formula
+        double a = (findLength(start[0],start[1],x,y));
+        double b = (findLength(end[0],end[1],x,y));
+        double c = length;
+        double s = (a + b + c)/2.0d;
+        double pre = (s * (s-a) * (s-b) * (s-c));
+        double Area= Math.sqrt(pre);
+        return Area;
     }
 
 

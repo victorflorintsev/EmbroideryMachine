@@ -43,13 +43,13 @@ public class EShape {
     protected void findArea() { // finds a close approximation of area by generating triangles and calculating their area
         area = 0; // comment test
         int[] first = slist[0].getStart(); // first point
-        for (Stitch s:slist) {
-            area += s.getTArea(first[0],first[1]);
+        for (int i = 1; i < slist.length;i++) {
+            area += slist[i].getTArea(first[0],first[1]);
         }
     }
 
     protected void findCm() {
-
+        // find centroid
     }
 
     public double getPerimeter() {
