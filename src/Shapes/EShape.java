@@ -1,5 +1,7 @@
 package Shapes;
 
+import java.awt.*;
+
 /**
  * Created by Victor on 4/19/2017.
  */
@@ -78,5 +80,11 @@ public class EShape {
         }
         System.out.println("Area: "+ this.getArea() +"\n" +
                            "Perimeter: "+this.getPerimeter());
+    }
+
+    public void paint(Graphics2D g2) {
+        for (Stitch s:slist) {
+            s.paint(g2);
+        }
     }
 }

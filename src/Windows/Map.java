@@ -1,5 +1,8 @@
 package Windows;
 
+import Shapes.EShape;
+import Shapes.ShapeSpace;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
@@ -14,24 +17,36 @@ import static Windows.MapWindow.PIXELS_PER_MM;
 
 public class Map extends JPanel {
     // use MapWindow.MACHINE_WIDTH_MM and MACHINE_HEIGHT_MM for gridx lines
-    public static final int[] GRID_COLOR = {170,170,170};
+    public static final int[] GRID_COLOR = {170, 170, 170};
     private Line2D[] gridx;
     private Line2D[] gridy;
 
     Dimension minSize = new Dimension(100, 50);
+    private ShapeSpace space;
+
 
     public Map(Color color) {
-            generateGrid();
-            setBackground(color);
-            setOpaque(true);
-            setBorder(BorderFactory.createLineBorder(Color.black));
+        space = new ShapeSpace();
+
+        generateGrid();
+        setBackground(color);
+        setOpaque(true);
+        setBorder(BorderFactory.createLineBorder(Color.black));
+    }
+
+    public void add(EShape s) {
+        space.add(s);
+    }
+
+    public void update() {
+        repaint();
     }
 
     public void paint(Graphics g) {
             super.paint(g);
             Graphics2D g2 = (Graphics2D) g;
-
             drawGrid(g2);
+            space.paint(g2);
     }
 
     private void generateGrid() {
@@ -63,6 +78,8 @@ public class Map extends JPanel {
             g2.draw(l);
         }
     }
+
+
 
     public Dimension getMinimumSize() {
             return minSize;

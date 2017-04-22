@@ -10,13 +10,14 @@ public class Main {
         MapWindow map = new MapWindow();
         HelperWindow helperWindow = new HelperWindow();
 
-        EShape test = new EShape(10,10, 3);
+        EShape test = new EShape(10,10, 20);
 
         test.print();
 
         map.add(test);
 
-        map.update(); // broken
+        map.update();
+
     }
 
     // ===================================   +

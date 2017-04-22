@@ -30,7 +30,4 @@ public class Window extends JFrame {
         mainFrame.setVisible(true);
     }
 
-    public void update() {
-        setVisible(true);
-    }
 }

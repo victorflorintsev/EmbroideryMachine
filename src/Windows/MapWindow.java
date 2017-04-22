@@ -24,12 +24,9 @@ public class MapWindow extends Window {
     public static final int NUM_COLS      = 1;
 
     private Map map;
-    private ShapeSpace space;
 
     public MapWindow() {
         super("Embroidery Map",WINDOW_WIDTH,WINDOW_HEIGHT,NUM_ROWS,NUM_COLS,HelperWindow.WINDOW_WIDTH+20,0);
-
-        space = new ShapeSpace();
 
         ClickListener clickListener = new ClickListener();
         MotionListener motionListener = new MotionListener();
@@ -46,10 +43,10 @@ public class MapWindow extends Window {
     }
 
     public void add(EShape s) {
-        space.add(s);
+        map.add(s);
     }
 
     public void update() {
-        // draw
+        map.update();
     }
 }

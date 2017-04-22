@@ -3,6 +3,7 @@ package Shapes;
 import java.awt.*;
 import java.awt.geom.Line2D;
 
+import static Windows.MapWindow.PIXELS_PER_MM;
 import static com.company.Main.findLength;
 
 /**
@@ -13,6 +14,7 @@ public class Stitch {
     private int[] end;   // x, y
     private double length;
     private double slope;
+    private Color color = new Color(255, 38, 57);
 
     private Line2D.Float line;
     Stitch(int x_start, int y_start, int x_end, int y_end) {
@@ -23,7 +25,11 @@ public class Stitch {
         end[0]   = x_end;
         end[1]   = y_end;
 
-        line = new Line2D.Float(x_start,y_start,x_end,y_end);
+        line = new Line2D.Float(
+                x_start*PIXELS_PER_MM,
+                y_start*PIXELS_PER_MM,
+                x_end*PIXELS_PER_MM,
+                y_end*PIXELS_PER_MM);
 
         length = findLength(x_start, y_start, x_end, y_end);
 
@@ -45,7 +51,7 @@ public class Stitch {
     public Line2D.Float getLine() { return line; }
 
     void highlight(Color c) {
-        // highlight code placeholder
+        color = c;
     }
 
     protected void moveBy(int x, int y) { // moves entire stitch, preserving angle;
@@ -67,5 +73,11 @@ public class Stitch {
 
     public double getLength() {
         return length;
+    }
+
+    public void paint(Graphics2D g2) {
+        g2.setColor(color);
+        g2.setStroke(new BasicStroke(3));
+        g2.draw(line);
     }
 }
