@@ -89,4 +89,14 @@ public class Map extends JPanel {
             return minSize;
     }
 
+    private EShape temp;
+    public EShape givePos(int x, int y) {
+
+        temp = space.givePos(x,y);
+
+        if (temp != null) {
+            repaint();
+        }
+        return temp;
+    }
 }

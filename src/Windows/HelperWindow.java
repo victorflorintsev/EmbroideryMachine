@@ -13,6 +13,7 @@ public class HelperWindow extends Window {
     public static final int NUM_COLS      = 1;
 
     static JTextArea info;
+    static JTextArea obj_info;
 
     private JLabel headerLabel;
     private JLabel statusLabel;
@@ -24,6 +25,9 @@ public class HelperWindow extends Window {
         info = new JTextArea("INIT");
         info.setVisible(true);
 
+        obj_info = new JTextArea("INIT");
+        obj_info.setVisible(true);
+
         headerLabel = new JLabel("TOOLKIT",JLabel.CENTER );
         statusLabel = new JLabel("Tool 1",JLabel.CENTER);
         statusLabel.setSize(350,100);
@@ -32,6 +36,7 @@ public class HelperWindow extends Window {
         controlPanel.setLayout(new FlowLayout());
 
         mainFrame.add(info);
+        mainFrame.add(obj_info);
         mainFrame.add(headerLabel);
         mainFrame.add(controlPanel);
         mainFrame.add(statusLabel);

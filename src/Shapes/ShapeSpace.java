@@ -27,4 +27,16 @@ public class ShapeSpace {
             }
         }
     }
+
+    public EShape givePos(int x, int y) {
+
+        for (int i = 0; i < size; i++) {
+            if (space[i] != null)  {
+                if (space[i].isNear(x,y)) {
+                    return space[i];
+                }
+            }
+        }
+        return null;
+    }
 }

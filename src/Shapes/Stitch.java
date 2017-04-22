@@ -86,4 +86,9 @@ public class Stitch {
         g2.setStroke(new BasicStroke(3));
         g2.draw(line);
     }
+
+    public boolean intersects(double x1,double y1,double x2,double y2) {
+        if (line.intersectsLine(x1,y1,x2,y2)) return true;
+        else return false;
+    }
 }

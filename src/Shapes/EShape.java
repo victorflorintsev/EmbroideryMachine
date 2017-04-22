@@ -1,6 +1,9 @@
 package Shapes;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
+
+import static Windows.MapWindow.PIXELS_PER_MM;
 
 /**
  * Created by Victor on 4/19/2017.
@@ -10,7 +13,7 @@ public class EShape {
 
     private Stitch[] slist; // list of stitches
 
-    private double[] cm; // center of mass
+    private float[] cm; // center of mass
     private double area;
     private double perimeter;
     private int[] color = DEFAULT_COLOR;
@@ -25,11 +28,15 @@ public class EShape {
     }
 
     private void makeSquare(int x, int y, int sideSize) { // keep in mind x, y is bottom left corner
+        cm = new float[2];
         slist = new Stitch[4];
         slist[0] = new Stitch(x               ,y               ,x+sideSize,y);
         slist[1] = new Stitch(x+sideSize,y               ,x+sideSize,y+sideSize);
         slist[2] = new Stitch(x+sideSize,y+sideSize,x               ,y+sideSize);
         slist[3] = new Stitch(x               ,y+sideSize,x               ,y);
+
+        cm[0] = x+sideSize;
+        cm[1] = y+sideSize;
     }
 
     private void findPerimeter() {
@@ -60,7 +67,7 @@ public class EShape {
         return area;
     }
 
-    public double[] getCm() {
+    public float[] getCm() {
         return cm;
     }
 
@@ -68,8 +75,8 @@ public class EShape {
         for (Stitch a:slist) {
             a.moveBy(x,y);  // move every stitch
         }
-//        cm[0] += x; // move center of mass
-//        cm[1] += y;
+        cm[0] += x; // move center of mass
+        cm[1] += y;
     }
 
     public void print() {
@@ -86,5 +93,17 @@ public class EShape {
         for (Stitch s:slist) {
             s.paint(g2);
         }
+    }
+
+    public boolean isNear(int x, int y) {
+        for (Stitch s:slist) {
+            if (s.intersects(
+                    cm[0]*PIXELS_PER_MM,
+                    cm[1]*PIXELS_PER_MM,
+                    -1*x*PIXELS_PER_MM,
+                    -1*y*PIXELS_PER_MM)) return true;
+        }
+
+        return false;
     }
 }

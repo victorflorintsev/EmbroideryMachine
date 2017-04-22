@@ -23,7 +23,7 @@ public class MapWindow extends Window {
     public static final int NUM_ROWS      = 1;
     public static final int NUM_COLS      = 1;
 
-    private Map map;
+    static Map map;
 
     public MapWindow() {
         super("Embroidery Map",WINDOW_WIDTH,WINDOW_HEIGHT,NUM_ROWS,NUM_COLS,HelperWindow.WINDOW_WIDTH+20,0);
